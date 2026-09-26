@@ -1,0 +1,1527 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#faf6f1">
+
+<title>TrySync | Đồng bộ tủ đồ - Nâng tầm phong cách</title>
+
+<style>
+:root {
+  --cream: #faf6f1;
+  --white: #fffdfa;
+  --pink: #d96b91;
+  --rose: #efb3c2;
+  --rose-light: #f8e5e8;
+  --black: #201d1d;
+  --gray: #77716f;
+  --border: #eadfda;
+
+  --serif: Georgia, "Times New Roman", serif;
+  --sans: Arial, Tahoma, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+  font-family: Arial, Tahoma, sans-serif;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  background: var(--cream);
+  color: var(--black);
+  font-family: Arial, Tahoma, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+h1, h2, h3, h4 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+p, a, button, span, label {
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.container {
+  width: min(1240px, 90%);
+  margin: auto;
+}
+
+.serif {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+.gradient-text {
+  background: linear-gradient(120deg, #c6537b, #efb3c2, #d96b91);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: #d96b91;
+  -webkit-text-fill-color: transparent;
+}
+
+.section {
+  padding: 100px 0;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 55px;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 11px;
+  color: var(--pink);
+  font-weight: 700;
+  margin-bottom: 13px;
+}
+
+.section-heading h2 {
+  font-size: clamp(32px, 4vw, 48px);
+  margin-bottom: 15px;
+}
+
+.section-heading p {
+  color: var(--gray);
+  font-size: 14px;
+}
+
+/* HEADER */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(250,246,241,.96);
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+  min-height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.brand img {
+  width: 155px;
+  max-height: 55px;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color .3s;
+}
+
+.nav-links a:hover {
+  color: var(--pink);
+}
+
+.nav-cta, .btn-primary {
+  border: 0;
+  border-radius: 2px;
+  background: var(--black);
+  color: white;
+  padding: 14px 25px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: .3s;
+}
+
+.nav-cta:hover, .btn-primary:hover {
+  background: var(--pink);
+  transform: translateY(-2px);
+}
+
+.menu-toggle {
+  display: none;
+  border: 0;
+  background: none;
+  font-size: 26px;
+  color: var(--black);
+}
+
+/* HERO */
+
+.hero {
+  min-height: 680px;
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  align-items: center;
+  gap: 45px;
+  padding: 55px 0 70px;
+}
+
+.hero-copy {
+  padding: 20px 0;
+}
+
+.hero-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin-bottom: 27px;
+}
+
+.hero-label::before {
+  content: "";
+  width: 30px;
+  height: 1px;
+  background: var(--pink);
+}
+
+.hero h1 {
+  font-size: clamp(46px, 6vw, 76px);
+  line-height: 1.12;
+  letter-spacing: -2px;
+  margin-bottom: 25px;
+}
+
+.hero h1 em {
+  font-weight: 400;
+}
+
+.hero-copy > p {
+  color: var(--gray);
+  font-size: 15px;
+  max-width: 450px;
+  line-height: 1.9;
+  margin-bottom: 35px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 13px;
+  flex-wrap: wrap;
+}
+
+.btn-secondary {
+  padding: 13px 24px;
+  border: 1px solid var(--black);
+  background: transparent;
+  color: var(--black);
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: .3s;
+}
+
+.btn-secondary:hover {
+  background: var(--rose-light);
+  border-color: var(--pink);
+}
+
+.hero-note {
+  margin-top: 40px;
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  color: var(--gray);
+  font-size: 11px;
+}
+
+.hero-note span::before {
+  content: "✳";
+  color: var(--pink);
+  margin-right: 8px;
+}
+
+.hero-visual {
+  height: 570px;
+  position: relative;
+  overflow: hidden;
+  background: #f1e5df;
+}
+
+.hero-visual > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-caption {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  right: 25px;
+  background: rgba(255,253,251,.95);
+  padding: 19px 23px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.hero-caption small {
+  color: var(--gray);
+  display: block;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.hero-caption strong {
+  font: 21px Georgia, "Times New Roman", serif;
+}
+
+.hero-caption .arrow {
+  font-size: 25px;
+  color: var(--pink);
+}
+
+/* BRAND STRIP */
+
+.brand-strip {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 25px 0;
+}
+
+.strip-inner {
+  display: flex;
+  justify-content: space-around;
+  gap: 25px;
+  flex-wrap: wrap;
+  color: #817875;
+  font: italic 18px Georgia, "Times New Roman", serif;
+}
+
+/* WARDROBE */
+
+.wardrobe {
+  background: var(--white);
+}
+
+.filter-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 35px;
+}
+
+.filter-btn {
+  padding: 11px 25px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--gray);
+  font-size: 12px;
+  transition: .25s;
+}
+
+.filter-btn.active, .filter-btn:hover {
+  background: var(--black);
+  color: white;
+  border-color: var(--black);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: 22px;
+}
+
+.product-card {
+  background: var(--cream);
+  transition: transform .3s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-image {
+  position: relative;
+  height: 350px;
+  overflow: hidden;
+  background: #f3eeea;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform .5s;
+  padding: 10px;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.04);
+}
+
+.product-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: var(--white);
+  padding: 6px 11px;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.product-info {
+  padding: 20px 18px 24px;
+}
+
+.product-info h3 {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.product-info p {
+  font-size: 13px;
+  color: var(--gray);
+  line-height: 1.8;
+}
+
+.product-number {
+  font-size: 10px;
+  color: var(--pink);
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+/* OUTFIT SUGGESTIONS */
+
+.recommendations {
+  background: var(--cream);
+}
+
+.recommendation-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 25px;
+  margin-bottom: 38px;
+}
+
+.recommendation-top .section-heading {
+  text-align: left;
+  margin-bottom: 0;
+}
+
+.recommendation-top .section-heading p {
+  max-width: 500px;
+}
+
+.look-count {
+  font: italic 18px Georgia, "Times New Roman", serif;
+  color: var(--pink);
+  white-space: nowrap;
+  padding-bottom: 8px;
+}
+
+.look-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 30px;
+}
+
+.look-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: box-shadow .3s, transform .3s;
+}
+
+.look-card:hover {
+  box-shadow: 0 20px 55px rgba(76,48,48,.08);
+  transform: translateY(-4px);
+}
+
+.look-visual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 15px;
+  background: #f3ece8;
+}
+
+.look-item {
+  height: 320px;
+  position: relative;
+  background: #faf7f4;
+  overflow: hidden;
+}
+
+.look-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 10px;
+  transition: transform .5s;
+}
+
+.look-card:hover .look-item img {
+  transform: scale(1.04);
+}
+
+.look-item span {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  background: rgba(255,253,251,.95);
+  padding: 6px 8px;
+  font-size: 10px;
+  text-align: center;
+}
+
+.look-details {
+  padding: 24px 26px 28px;
+}
+
+.look-number {
+  color: var(--pink);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.look-details h3 {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.look-details p {
+  font-size: 13px;
+  color: var(--gray);
+  line-height: 1.9;
+  margin-bottom: 23px;
+}
+
+.look-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+}
+
+.look-pieces {
+  font-size: 11px;
+  color: var(--gray);
+}
+
+.buy-btn {
+  background: var(--black);
+  color: white;
+  border: 0;
+  padding: 13px 19px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  transition: .3s;
+}
+
+.buy-btn:hover {
+  background: var(--pink);
+}
+
+/* HOW IT WORKS */
+
+.how {
+  background: var(--black);
+  color: white;
+  padding: 85px 0;
+}
+
+.how .section-heading p {
+  color: #bcb3b0;
+}
+
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 40px;
+}
+
+.how-item {
+  text-align: center;
+  padding: 20px;
+}
+
+.how-icon {
+  width: 65px;
+  height: 65px;
+  margin: 0 auto 25px;
+  border: 1px solid rgba(239,179,194,.45);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--rose);
+  font: 28px Georgia, "Times New Roman", serif;
+}
+
+.how-item h3 {
+  font-size: 25px;
+  margin-bottom: 13px;
+}
+
+.how-item p {
+  font-size: 13px;
+  color: #bcb3b0;
+  line-height: 1.9;
+}
+
+/* CTA */
+
+.cta {
+  padding: 100px 0;
+  text-align: center;
+  background: var(--rose-light);
+}
+
+.cta h2 {
+  font-size: clamp(38px,5vw,60px);
+  line-height: 1.2;
+  max-width: 750px;
+  margin: 0 auto 20px;
+}
+
+.cta p {
+  max-width: 530px;
+  margin: 0 auto 30px;
+  color: var(--gray);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+/* FOOTER */
+
+footer {
+  background: #1c1919;
+  color: white;
+  padding: 55px 0 25px;
+}
+
+.footer-main {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  padding-bottom: 40px;
+}
+
+.footer-brand {
+  font: italic 42px Georgia, "Times New Roman", serif;
+  margin-bottom: 13px;
+}
+
+.footer-brand span {
+  color: var(--rose);
+}
+
+.footer-desc {
+  color: #bcb3b0;
+  font-size: 13px;
+  max-width: 350px;
+  line-height: 1.9;
+}
+
+.footer-links h4 {
+  color: var(--rose);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.footer-links a {
+  display: block;
+  color: #bcb3b0;
+  font-size: 13px;
+  margin-bottom: 12px;
+  transition: color .2s;
+}
+
+.footer-links a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  border-top: 1px solid #3c3434;
+  padding-top: 22px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  color: #948986;
+  font-size: 11px;
+}
+
+/* TOAST */
+
+.toast {
+  position: fixed;
+  bottom: 25px;
+  left: 50%;
+  transform: translate(-50%, 120px);
+  background: var(--black);
+  color: white;
+  padding: 15px 25px;
+  font-size: 13px;
+  z-index: 2000;
+  opacity: 0;
+  transition: .35s;
+  text-align: center;
+  max-width: 90%;
+}
+
+.toast.show {
+  transform: translate(-50%,0);
+  opacity: 1;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+  .nav-links {
+    gap: 18px;
+  }
+
+  .nav-links a {
+    font-size: 11px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .product-image {
+    height: 380px;
+  }
+
+  .look-item {
+    height: 280px;
+  }
+}
+
+@media (max-width: 700px) {
+  .container {
+    width: 91%;
+  }
+
+  .section {
+    padding: 65px 0;
+  }
+
+  .navbar {
+    min-height: 70px;
+  }
+
+  .brand img {
+    width: 120px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-cta {
+    display: none;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: var(--cream);
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 10px 5%;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 15px 0;
+    font-size: 13px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 40px 0;
+    gap: 30px;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+  }
+
+  .hero-visual {
+    height: 420px;
+  }
+
+  .hero-note {
+    gap: 12px;
+    margin-top: 25px;
+  }
+
+  .strip-inner {
+    justify-content: center;
+    font-size: 15px;
+  }
+
+  .product-grid {
+    gap: 13px;
+  }
+
+  .product-image {
+    height: 250px;
+  }
+
+  .product-info {
+    padding: 15px 12px 20px;
+  }
+
+  .product-info h3 {
+    font-size: 19px;
+  }
+
+  .product-info p {
+    font-size: 12px;
+  }
+
+  .recommendation-top {
+    display: block;
+  }
+
+  .recommendation-top .section-heading {
+    margin-bottom: 15px;
+  }
+
+  .look-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .look-item {
+    height: 280px;
+  }
+
+  .look-details {
+    padding: 22px 18px;
+  }
+
+  .look-details h3 {
+    font-size: 25px;
+  }
+
+  .look-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .buy-btn {
+    width: 100%;
+  }
+
+  .how-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .footer-main {
+    flex-direction: column;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .product-image {
+    height: 200px;
+  }
+
+  .look-item {
+    height: 220px;
+  }
+
+  .look-visual {
+    gap: 5px;
+    padding: 8px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container navbar">
+
+    <a class="brand" href="#home">
+      <img src="logo ngang.png" alt="TrySync">
+    </a>
+
+    <button class="menu-toggle" id="menuToggle"
+            aria-label="Mở menu">☰</button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Trang chủ</a></li>
+      <li><a href="#wardrobe">Tủ đồ</a></li>
+      <li><a href="#suggestions">Gợi ý</a></li>
+      <li><a href="#shopping">Mua hàng</a></li>
+    </ul>
+
+    <a href="#suggestions" class="nav-cta">
+      Khám phá outfit ↗
+    </a>
+
+  </div>
+</header>
+
+<main>
+
+<!-- TRANG CHỦ -->
+
+<section class="container hero" id="home">
+
+  <div class="hero-copy">
+
+    <div class="hero-label">
+      Your wardrobe, reimagined
+    </div>
+
+    <h1 class="serif">
+      Mặc đẹp<br>
+      theo cách<br>
+      <em class="gradient-text">của riêng bạn.</em>
+    </h1>
+
+    <p>
+      TrySync biến những món đồ quen thuộc trong tủ đồ
+      thành nguồn cảm hứng bất tận. Khám phá cách phối
+      trang phục tinh tế, tiết kiệm thời gian và thể hiện
+      dấu ấn phong cách cá nhân.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#suggestions" class="btn-primary">
+        Khám phá gợi ý ↗
+      </a>
+
+      <a href="#wardrobe" class="btn-secondary">
+        Xem tủ đồ
+      </a>
+    </div>
+
+    <div class="hero-note">
+      <span>Mix & Match</span>
+      <span>Personal Style</span>
+      <span>TrySync Demo</span>
+    </div>
+
+  </div>
+
+  <div class="hero-visual">
+    <img src="Thiết kế chưa có tên.png"
+         alt="Hình ảnh thương hiệu TrySync">
+
+    <div class="hero-caption">
+      <div>
+        <small>TrySync collection</small>
+        <strong>Đồng bộ tủ đồ - Nâng tầm phong cách</strong>
+      </div>
+      <span class="arrow">↗</span>
+    </div>
+  </div>
+
+</section>
+
+<div class="brand-strip">
+  <div class="container strip-inner">
+    <span>Effortless Elegance</span>
+    <span>✳</span>
+    <span>Style Your Way</span>
+    <span>✳</span>
+    <span>Everyday Inspiration</span>
+  </div>
+</div>
+
+<!-- TỦ ĐỒ -->
+
+<section class="section wardrobe" id="wardrobe">
+
+  <div class="container">
+
+    <div class="section-heading">
+      <div class="eyebrow">The wardrobe edit</div>
+
+      <h2 class="serif">
+        Tủ đồ <span class="gradient-text">của bạn</span>
+      </h2>
+
+      <p>
+        Khám phá những thiết kế cơ bản và cách chúng kết hợp cùng nhau.
+      </p>
+    </div>
+
+    <div class="filter-row">
+      <button class="filter-btn active" data-filter="all">
+        Tất cả
+      </button>
+
+      <button class="filter-btn" data-filter="top">
+        Áo
+      </button>
+
+      <button class="filter-btn" data-filter="bottom">
+        Quần & váy
+      </button>
+    </div>
+
+    <div class="product-grid">
+
+      <article class="product-card" data-category="top">
+        <div class="product-image">
+          <span class="product-tag">01 / Top</span>
+          <img src="3.png" alt="Blazer hồng" loading="lazy">
+        </div>
+
+        <div class="product-info">
+          <div class="product-number">TS - 001</div>
+          <h3>Blazer hồng</h3>
+          <p>
+            Thiết kế blazer thanh lịch, gam hồng rose nhẹ nhàng,
+            tạo điểm nhấn nữ tính và hiện đại.
+          </p>
+        </div>
+      </article>
+
+      <article class="product-card" data-category="top">
+        <div class="product-image">
+          <span class="product-tag">02 / Top</span>
+          <img src="4.png" alt="Áo hai dây trắng" loading="lazy">
+        </div>
+
+        <div class="product-info">
+          <div class="product-number">TS - 002</div>
+          <h3>Áo hai dây trắng</h3>
+          <p>
+            Phom dáng tối giản, sắc trắng tinh khôi,
+            dễ dàng kết hợp với nhiều phong cách khác nhau.
+          </p>
+        </div>
+      </article>
+
+      <article class="product-card" data-category="bottom">
+        <div class="product-image">
+          <span class="product-tag">03 / Bottom</span>
+          <img src="5.png" alt="Quần ống rộng trắng" loading="lazy">
+        </div>
+
+        <div class="product-info">
+          <div class="product-number">TS - 003</div>
+          <h3>Quần ống rộng trắng</h3>
+          <p>
+            Phom quần suông rộng, tạo cảm giác phóng khoáng
+            và mang đến vẻ ngoài thanh lịch.
+          </p>
+        </div>
+      </article>
+
+      <article class="product-card" data-category="bottom">
+        <div class="product-image">
+          <span class="product-tag">04 / Bottom</span>
+          <img src="6.png"
+               alt="Chân váy xếp ly hồng nhạt"
+               loading="lazy">
+        </div>
+
+        <div class="product-info">
+          <div class="product-number">TS - 004</div>
+          <h3>Chân váy xếp ly hồng nhạt</h3>
+          <p>
+            Những đường xếp ly mềm mại cùng gam hồng pastel,
+            tôn lên nét duyên dáng và nữ tính.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- GỢI Ý PHỐI ĐỒ -->
+
+<section class="section recommendations" id="suggestions">
+
+  <div class="container">
+
+    <div class="recommendation-top">
+
+      <div class="section-heading">
+        <div class="eyebrow">Curated for you</div>
+
+        <h2 class="serif">
+          Bản phối <span class="gradient-text">hoàn hảo</span>
+        </h2>
+
+        <p>
+          Từ 2 chiếc áo và 2 thiết kế quần, váy,
+          TrySync gợi ý 4 cách phối đồ để bạn khám phá
+          nhiều sắc thái phong cách.
+        </p>
+      </div>
+
+      <div class="look-count">
+        02 Tops × 02 Bottoms
+      </div>
+
+    </div>
+
+    <div class="look-grid">
+
+      <!-- LOOK 1 -->
+
+      <article class="look-card">
+
+        <div class="look-visual">
+          <div class="look-item">
+            <img src="3.png" alt="Blazer hồng" loading="lazy">
+            <span>Blazer hồng</span>
+          </div>
+
+          <div class="look-item">
+            <img src="5.png" alt="Quần ống rộng trắng" loading="lazy">
+            <span>Quần ống rộng trắng</span>
+          </div>
+        </div>
+
+        <div class="look-details">
+          <div class="look-number">Look 01 / Chic & Elegant</div>
+
+          <h3>Thanh lịch đương đại</h3>
+
+          <p>
+            Blazer hồng tạo điểm nhấn nổi bật trên nền quần
+            trắng trung tính. Sự kết hợp giữa hai gam màu
+            mang lại diện mạo hài hòa, thanh lịch và phù hợp
+            cho môi trường công sở hoặc những buổi gặp gỡ.
+          </p>
+
+          <div class="look-footer">
+            <span class="look-pieces">2 sản phẩm · 1 bản phối</span>
+
+            <button class="buy-btn" onclick="showDemoMessage()">
+              Mua bộ này ↗
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- LOOK 2 -->
+
+      <article class="look-card">
+
+        <div class="look-visual">
+          <div class="look-item">
+            <img src="3.png" alt="Blazer hồng" loading="lazy">
+            <span>Blazer hồng</span>
+          </div>
+
+          <div class="look-item">
+            <img src="6.png"
+                 alt="Chân váy xếp ly hồng nhạt"
+                 loading="lazy">
+            <span>Chân váy xếp ly</span>
+          </div>
+        </div>
+
+        <div class="look-details">
+          <div class="look-number">Look 02 / Feminine Chic</div>
+
+          <h3>Nét hồng nữ tính</h3>
+
+          <p>
+            Sự đồng điệu giữa blazer hồng và chân váy xếp ly
+            tạo nên tổng thể mềm mại, nữ tính. Các sắc độ
+            hồng kết hợp cùng phom dáng thanh thoát giúp
+            bản phối trở nên duyên dáng mà vẫn hiện đại.
+          </p>
+
+          <div class="look-footer">
+            <span class="look-pieces">2 sản phẩm · 1 bản phối</span>
+
+            <button class="buy-btn" onclick="showDemoMessage()">
+              Mua bộ này ↗
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- LOOK 3 -->
+
+      <article class="look-card">
+
+        <div class="look-visual">
+          <div class="look-item">
+            <img src="4.png" alt="Áo hai dây trắng" loading="lazy">
+            <span>Áo hai dây trắng</span>
+          </div>
+
+          <div class="look-item">
+            <img src="5.png" alt="Quần ống rộng trắng" loading="lazy">
+            <span>Quần ống rộng trắng</span>
+          </div>
+        </div>
+
+        <div class="look-details">
+          <div class="look-number">Look 03 / Minimalist</div>
+
+          <h3>Tối giản tinh tế</h3>
+
+          <p>
+            Bộ đôi trắng mang đến vẻ ngoài tối giản, nhẹ
+            nhàng và tinh tế. Sự đồng nhất về màu sắc kết
+            hợp cùng phom quần rộng tạo cảm giác phóng
+            khoáng, phù hợp với phong cách thường ngày.
+          </p>
+
+          <div class="look-footer">
+            <span class="look-pieces">2 sản phẩm · 1 bản phối</span>
+
+            <button class="buy-btn" onclick="showDemoMessage()">
+              Mua bộ này ↗
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- LOOK 4 -->
+
+      <article class="look-card">
+
+        <div class="look-visual">
+          <div class="look-item">
+            <img src="4.png" alt="Áo hai dây trắng" loading="lazy">
+            <span>Áo hai dây trắng</span>
+          </div>
+
+          <div class="look-item">
+            <img src="6.png"
+                 alt="Chân váy xếp ly hồng nhạt"
+                 loading="lazy">
+            <span>Chân váy xếp ly</span>
+          </div>
+        </div>
+
+        <div class="look-details">
+          <div class="look-number">Look 04 / Soft Romance</div>
+
+          <h3>Ngọt ngào thanh thoát</h3>
+
+          <p>
+            Áo hai dây trắng làm nổi bật sắc hồng pastel
+            của chân váy xếp ly. Bản phối nhẹ nhàng, trẻ
+            trung và nữ tính, thích hợp cho những buổi
+            dạo phố, hẹn hò hoặc những ngày cuối tuần.
+          </p>
+
+          <div class="look-footer">
+            <span class="look-pieces">2 sản phẩm · 1 bản phối</span>
+
+            <button class="buy-btn" onclick="showDemoMessage()">
+              Mua bộ này ↗
+            </button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- GIỚI THIỆU -->
+
+<section class="how" id="how">
+
+  <div class="container">
+
+    <div class="section-heading">
+      <div class="eyebrow">The TrySync experience</div>
+
+      <h2 class="serif">
+        Phong cách bắt đầu
+        <span class="gradient-text">từ bạn</span>
+      </h2>
+
+      <p>
+        Một cách tiếp cận mới để khám phá và tận dụng tủ đồ cá nhân.
+      </p>
+    </div>
+
+    <div class="how-grid">
+
+      <div class="how-item">
+        <div class="how-icon">01</div>
+        <h3>Đồng bộ tủ đồ</h3>
+        <p>
+          Tập hợp những món đồ yêu thích trong tủ đồ
+          và tạo nên bộ sưu tập mang dấu ấn cá nhân.
+        </p>
+      </div>
+
+      <div class="how-item">
+        <div class="how-icon">02</div>
+        <h3>Khám phá phối đồ</h3>
+        <p>
+          Thử nghiệm những cách kết hợp khác nhau,
+          khám phá diện mạo mới từ những món đồ quen thuộc.
+        </p>
+      </div>
+
+      <div class="how-item">
+        <div class="how-icon">03</div>
+        <h3>Nâng tầm phong cách</h3>
+        <p>
+          Tìm cảm hứng mỗi ngày, tiết kiệm thời gian
+          lựa chọn trang phục và tự tin thể hiện bản thân.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MUA HÀNG -->
+
+<section class="cta" id="shopping">
+
+  <div class="container">
+
+    <div class="eyebrow">Your style, your story</div>
+
+    <h2 class="serif">
+      Mỗi ngày là một cơ hội để
+      <span class="gradient-text">mặc đẹp hơn.</span>
+    </h2>
+
+    <p>
+      Khám phá 4 bản phối được TrySync gợi ý từ tủ đồ
+      mẫu và tìm ra phong cách phù hợp với bạn.
+    </p>
+
+    <a href="#suggestions" class="btn-primary">
+      Khám phá bộ sưu tập ↗
+    </a>
+
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="container">
+
+    <div class="footer-main">
+
+      <div>
+        <div class="footer-brand">
+          Try<span>Sync</span>
+        </div>
+
+        <p class="footer-desc">
+          Đồng bộ tủ đồ - Nâng tầm phong cách.
+          Khám phá cảm hứng phối đồ và thể hiện
+          cá tính qua từng bộ trang phục.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Khám phá</h4>
+        <a href="#home">Trang chủ</a>
+        <a href="#wardrobe">Tủ đồ</a>
+        <a href="#suggestions">Gợi ý phối đồ</a>
+      </div>
+
+      <div class="footer-links">
+        <h4>TrySync</h4>
+        <a href="#how">Về chúng tôi</a>
+        <a href="#suggestions">Bộ sưu tập</a>
+        <a href="#home">Trở về đầu trang ↑</a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 TrySync. All rights reserved.</span>
+      <span>Fashion meets technology · Demo website</span>
+    </div>
+
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite">
+  Đây là bản demo TrySync. Liên kết cửa hàng sẽ được cập nhật sau.
+</div>
+
+<script>
+/* MENU DI ĐỘNG */
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+  const isOpen = navLinks.classList.toggle("open");
+
+  menuToggle.setAttribute("aria-expanded", isOpen);
+  menuToggle.textContent = isOpen ? "×" : "☰";
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.textContent = "☰";
+  });
+});
+
+/* LỌC TỦ ĐỒ */
+
+const filterButtons = document.querySelectorAll(".filter-btn");
+const productCards = document.querySelectorAll(".product-card");
+
+filterButtons.forEach(button => {
+  button.addEventListener("click", () => {
+
+    filterButtons.forEach(btn => {
+      btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    const filter = button.dataset.filter;
+
+    productCards.forEach(card => {
+      const category = card.dataset.category;
+
+      card.style.display =
+        filter === "all" || category === filter
+          ? ""
+          : "none";
+    });
+
+  });
+});
+
+/* THÔNG BÁO MUA HÀNG DEMO */
+
+let toastTimer;
+
+function showDemoMessage() {
+  const toast = document.getElementById("toast");
+
+  toast.classList.add("show");
+
+  clearTimeout(toastTimer);
+
+  toastTimer = setTimeout(() => {
+    toast.classList.remove("show");
+  }, 3500);
+}
+
+/* CUỘN TRANG MƯỢT */
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+  anchor.addEventListener("click", function(event) {
+
+    const target = document.querySelector(
+      this.getAttribute("href")
+    );
+
+    if (target) {
+      event.preventDefault();
+
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+
+  });
+
+});
+</script>
+
+</body>
+</html>
